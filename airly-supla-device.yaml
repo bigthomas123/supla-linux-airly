@@ -1,0 +1,125 @@
+# Example supla-device config file for Linux device
+# https://github.com/SUPLA/supla-device
+
+name: Airly
+log_level: info
+state_files_path: "/home/airly"
+security_level: 2 	 
+
+
+supla:
+  server: svrXXX.supla.org
+  mail: mail@mail.com
+
+channels:
+  - type: ThermometerParsed # PM1
+    name: PM1
+    temperature: 0
+    multiplier: 1
+    parser:
+      name: parser_1
+      type: Simple
+      refresh_time_ms: 200
+    source:
+      name: s1
+      type: File
+      file: /home/airly/dane/pm1.txt
+      expiration_time_sec: 900
+      
+  - type: ThermometerParsed # PM25
+    name: PM25
+    temperature: 0
+    multiplier: 1
+    parser:
+      name: parser_1
+      type: Simple
+      refresh_time_ms: 200
+    source:
+      name: s1
+      type: File
+      file: /home/airly/dane/pm25.txt
+      expiration_time_sec: 900
+
+  - type: HumidityParsed # % NORMY WHO PM2.5
+    name: norma WHO dla PM25
+    humidity: 0
+    multiplier: 1
+    parser:
+      name: parser_1
+      type: Simple
+      refresh_time_ms: 200
+    source:
+      name: s1
+      type: File
+      file: /home/airly/dane/who_pm25.txt
+      expiration_time_sec: 900  
+
+  - type: ThermometerParsed # PM10
+    name: PM10
+    temperature: 0
+    multiplier: 1
+    parser:
+      name: parser_1
+      type: Simple
+      refresh_time_ms: 200
+    source:
+      name: s1
+      type: File
+      file: /home/airly/dane/pm10.txt
+      expiration_time_sec: 900
+
+  - type: HumidityParsed # % NORMY WHO PM10
+    name: norma WHO dla PM10
+    humidity: 0
+    multiplier: 1
+    parser:
+      name: parser_1
+      type: Simple
+      #refresh_time_ms: 200
+    source:
+      name: s1
+      type: File
+      file: /home/airly/dane/who_pm10.txt
+      expiration_time_sec: 900
+ 
+  - type: PressureParsed # Ciśnienie 
+    name: ciśnienie
+    pressure: 0
+    multiplier: 1
+    parser:
+      name: parser_1
+      type: Simple
+      refresh_time_ms: 200
+    source:
+      name: s1
+      type: File
+      file: /home/airly/dane/pressure.txt
+      expiration_time_sec: 900
+ 
+  - type: HumidityParsed # Wilgotność
+    name: wilgotność
+    humidity: 0
+    multiplier: 1
+    parser:
+      name: parser_1
+      type: Simple
+      refresh_time_ms: 200
+    source:
+      name: s1
+      type: File
+      file: /home/airly/dane/humidity.txt
+      expiration_time_sec: 900
+ 
+  - type: ThermometerParsed # Temperatura
+    name: Temperatura
+    temperature: 0
+    multiplier: 1
+    parser:
+      name: parser_1
+      type: Simple
+      refresh_time_ms: 200
+    source:
+      name: s1
+      type: File
+      file: /home/airly/dane/temperature.txt
+      expiration_time_sec: 900
